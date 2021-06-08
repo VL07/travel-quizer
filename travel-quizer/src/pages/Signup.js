@@ -38,7 +38,7 @@ export default function Signup() {
             setError("")
             signupUser(emailRef.current.value, passwordRef.current.value)
 
-            history.push("/")
+            history.push("/dashboard")
         } catch {
             setError("Unable to create user")
         }
