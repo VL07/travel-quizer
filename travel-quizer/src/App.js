@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Help from "./pages/Help";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             {/* AUTH - Guests only */}
             {/* Signup route */}
             <GuestRoute exact path="/signup" component={Signup} />
+            <GuestRoute exact path="/login" component={Login} />
           </Switch>
         </Router>
       </AuthProvider>

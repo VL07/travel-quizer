@@ -10,7 +10,7 @@ export default function GuestRoute({component: Component}, ...rest) {
         <Route 
             {...rest}
             render={props => {
-                return !currentUser ? <Component {...props} /> : <Redirect to="/" />
+                return !currentUser ? <Component {...props} /> : <Redirect to="/dashboard" />
             }}    
         ></Route>
     )
