@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 
 export default function Signup() {
-    emailRef = useRef()
-    passwordRef = useRef()
-    repeatPasswordRef = useRef()
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const repeatPasswordRef = useRef()
 
     function onSubmit(e) {
         e.preventDefault()
