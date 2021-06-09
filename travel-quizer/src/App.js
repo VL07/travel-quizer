@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from './pages/Login';
 import User from './pages/User';
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -25,8 +26,11 @@ function App() {
             {/* Private dashboard route */}
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
-            {/* Private dashboard route */}
+            {/* Private user route */}
             <Route exact path="/user/:id" component={User} />
+
+            {/* Private edit account route */}
+            <PrivateRoute exact path="/edit" component={EditProfile} />
 
             {/* AUTH - Guests only */}
             {/* Signup route */}
