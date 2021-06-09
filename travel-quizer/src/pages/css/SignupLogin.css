@@ -4,14 +4,57 @@
     padding: 0px;
     background-color: #FF9618;
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
 }
 
 .signup > form, 
 .login > form {
     background-color: white;
-    padding: 20px;
+    padding: 10px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 20px;
+    position: fixed;
+}
+
+.signup > form input, 
+.login > form input {
+    width: calc(100% - 20px);
+}
+
+input {
+    padding: 0px 10px;
+    border: 0px;
+    outline: none;
+    background-color: #e6e6e6;
+    color: black;
+    border-radius: 10px;
+    font-size: 1.5em;
+    height: 2em;
+    margin: 10px 0px;
+}
+
+input[type="submit"] {
+    background-color: #ff9618;
+    color: white;
+    width: calc(100%) !important;
+    transition: 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #c06a00;
+}
+
+a {
+    color: #383838;
+    font-size: 1em;
+}
+
+.error {
+    color: #ff3b3b;
+    font-size: 1.5em;
 }
