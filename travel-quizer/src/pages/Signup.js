@@ -1,21 +1,20 @@
 import React, { useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import { useAuth } from "../contexts/AuthContext"
-import { db } from "../firebase"
 
 export default function Signup() {
     // refs
     const emailRef = useRef()
-    const passwordRef = useRef()
-    const repeatPasswordRef = useRef()
     const usernameRef = useRef()
+    const passwordRef = useRef() 
+    const repeatPasswordRef = useRef()
 
     // states
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
     // Use auth thing
-    const { signupUser, currentUser } = useAuth()
+    const { signupUser } = useAuth()
 
     // history to redirect
     const history = useHistory()
@@ -26,6 +25,8 @@ export default function Signup() {
         // prevents reload
         e.preventDefault()
 
+        console.log("user submited")
+
         // make the user unable to submit two times
         setLoading(true)
 
@@ -35,25 +36,22 @@ export default function Signup() {
             return setError("Password dosn't match")
         }
 
+        const username = usernameRef.current.value
+
         // Trys to create user
         try {
             setError("")
             await signupUser(emailRef.current.value, passwordRef.current.value)
+            console.log("created user")
 
-            // geting users doc
-            const usersDbRef = db.collection("users").doc(currentUser.uid)
-
-            // seting users data
-            usersDbRef.set({username: usernameRef.current.value, score: 1}).then(() => {
-                console.log("Successfully wrote data")
-            }).catch((error) => {
-                console.error("Error writing document: ", error)
-            })
-
-            history.push("/dashboard")
-        } catch {
+            console.log(usernameRef)
+            console.log("here:")
+            console.log(username)
+            history.push({pathname: "/dashboard", search: `?username=${username}`})
+        } catch(err) {
             setError("Unable to create user")
             setLoading(false)
+            console.error(err)
         }
     }
 

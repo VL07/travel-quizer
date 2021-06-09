@@ -68,7 +68,7 @@ export default function EditProfile() {
         
         usersDbRef.update({username: usernameRef.current.value}).then(() => {
             console.log("Successfully updated data")
-            history.push("/dashboard")
+            history.go(-1)
         }).catch((error) => {
             console.error("Error updating document: ", error)
             setError("Error, please reload the page!")
