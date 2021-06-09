@@ -1,0 +1,17 @@
+.signup, 
+.login {
+    margin: 0px;
+    padding: 0px;
+    background-color: #FF9618;
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup > form, 
+.login > form {
+    background-color: white;
+    padding: 20px;
+}

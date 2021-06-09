@@ -56,14 +56,14 @@ export default function Signup() {
     }
 
     return (
-        <div>
+        <div className="signup">
             {/* If error display it */}
             {error && <p>{error}</p>}
             <form onSubmit={onSubmit} >
-                <input type="email" ref={emailRef} placeholder="Email" name="email" />
-                <input type="text" ref={usernameRef} placeholder="Username" name="username" />
-                <input type="password" ref={passwordRef} placeholder="Password" name="password" />
-                <input type="password" ref={repeatPasswordRef} placeholder="Confirm password" name="repeat-password" />
+                <input type="email" ref={emailRef} placeholder="Email" name="email" /><br />
+                <input type="text" ref={usernameRef} placeholder="Username" name="username" /><br />
+                <input type="password" ref={passwordRef} placeholder="Password" name="password" /><br />
+                <input type="password" ref={repeatPasswordRef} placeholder="Confirm password" name="repeat-password" /><br />
                 <input type="submit" name="submit" value="Signup" disabled={loading} />
             </form>
         </div>
