@@ -38,7 +38,7 @@ export default function Signup() {
             history.push("/dashboard")
         } catch (err) {
             console.warn(err)
-            setError("Youser didn't exist")
+            setError("User didn't exist")
             setLoading(false)
         }
     }
