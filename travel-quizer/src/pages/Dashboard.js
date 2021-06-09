@@ -5,6 +5,10 @@ import { db } from '../firebase'
 
 export default function Dashboard() {
     const { currentUser } = useAuth() 
+
+    // logs user for debugin
+    // TODO: REMOVE LATER
+    console.log(currentUser)
     
     // sets the states
     const [userData, setUserData] = useState({username: "Coming soon", score: 1})

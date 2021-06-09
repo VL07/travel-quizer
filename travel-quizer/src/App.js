@@ -7,6 +7,7 @@ import Help from "./pages/Help";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from './pages/Login';
+import User from './pages/User';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
 
             {/* Private dashboard route */}
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+
+            {/* Private dashboard route */}
+            <Route exact path="/user/:id" component={User} />
 
             {/* AUTH - Guests only */}
             {/* Signup route */}
