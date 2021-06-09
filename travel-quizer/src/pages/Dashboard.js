@@ -29,7 +29,7 @@ export default function Dashboard() {
                 // Data dosn't exist; setting data
                 console.log("No such document!");
 
-                usersDbRef.set({username: "Coming soon", score: 1}).then(() => {
+                usersDbRef.set({username: "Error here...", score: 1}).then(() => {
                     console.log("Successfully wrote data")
                 }).catch((error) => {
                     console.error("Error writing document: ", error)
