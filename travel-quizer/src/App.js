@@ -10,6 +10,8 @@ import Login from './pages/Login';
 import User from './pages/User';
 import EditProfile from "./pages/EditProfile";
 
+import "./pages/css/SignupLogin.css"
+
 function App() {
   return (
     <div className="App">
