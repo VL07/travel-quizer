@@ -1,0 +1,10 @@
+.section {
+    width: calc(100% - 20px);
+    background-color: #e6e6e6;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.section > * {
+    margin: 5px 0px;
+}

@@ -1,0 +1,11 @@
+.card {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.card * {
+    margin: 10px 0px;
+}

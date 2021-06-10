@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.fill-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg {
+  background-color: #ff9618;
+}
+
+.fw-normal {
+  font-weight: normal;
+}
+
+button {
+  padding: 0px 10px;
+  border: 0px;
+  outline: none;
+  background-color: #e6e6e6;
+  color: black;
+  border-radius: 10px;
+  font-size: 1.5em;
+  height: 2em;
+  margin: 10px 0px;
+  background-color: #ff9618;
+  color: white;
+  width: 25%;
+  transition: 0.2s ease;
+  max-width: 250px;
+}
+
+button:hover {
+  background-color: #c06a00;
+}

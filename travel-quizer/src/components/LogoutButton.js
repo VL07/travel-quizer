@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 import { useAuth } from '../contexts/AuthContext'
+import "./css/LogoutButton.css"
 
 export default function LogoutButton({children, ...rest}) {
     const { logout } = useAuth()
@@ -16,7 +17,7 @@ export default function LogoutButton({children, ...rest}) {
     }
 
     return (
-        <button variant="danger" onClick={handleLogout} {...rest}>
+        <button className="logout-btn" onClick={handleLogout} {...rest}>
             {children}
         </button>
     )
