@@ -2,7 +2,7 @@
 .login {
     margin: 0px;
     padding: 0px;
-    background-color: #FF9618;
+    background-color: #ff9618;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -57,4 +57,13 @@ a {
 .error {
     color: #ff3b3b;
     font-size: 1.5em;
+}
+
+.copr {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
 }
