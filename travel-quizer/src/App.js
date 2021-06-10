@@ -11,6 +11,7 @@ import User from './pages/User';
 import EditProfile from "./pages/EditProfile";
 
 import "./pages/css/SignupLogin.css"
+import Quiz from "./pages/Quiz";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
 
             {/* Help route */}
             <Route exact path="/help" component={Help} />
+
+            {/* Quiz route - if not logged in redirects to '/' inside component */}
+            <Route exact path="/quiz/:id" component={Quiz} />
 
             {/* Private dashboard route */}
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
