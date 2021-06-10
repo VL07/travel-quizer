@@ -15,6 +15,11 @@ export default function User() {
     // sets the states
     const [userData, setUserData] = useState({username: "Coming soon", score: 1})
 
+    // redirects if user isent loged in
+    if (!currentUser) {
+        history.go(-1)
+    }
+
     // redirects to dashboard if it's the current user
     if (id === currentUser.uid) {
         console.log("Current user")
