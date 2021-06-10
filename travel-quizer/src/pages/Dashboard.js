@@ -30,18 +30,8 @@ export default function Dashboard() {
                 console.log("Document data:", doc.data());
                 setUserData(doc.data())
             } else {
-                // Data dosn't exist; setting data
+                // Data dosn't exist
                 console.log("No such document!");
-
-                // geting url parameters
-                const urlParams = new URLSearchParams(window.location.search)
-                const username = urlParams.get('username')
-
-                usersDbRef.set({username: username, score: 1}).then(() => {
-                    console.log("Successfully wrote data")
-                }).catch((error) => {
-                    console.error("Error writing document: ", error)
-                })
             }
         }).catch((error) => {
             console.log("Error getting document:", error);
