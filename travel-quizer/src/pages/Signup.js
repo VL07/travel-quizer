@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
+import Copyright from '../components/Copyright'
 import { useAuth } from "../contexts/AuthContext"
 
 export default function Signup() {
@@ -57,18 +58,21 @@ export default function Signup() {
     }
 
     return (
-        <div className="signup">
-            <form onSubmit={onSubmit} >
-                <h1>Signup</h1>
-                {/* If error display it */}
-                {error && <p className="error">{error}</p>}
-                <input type="email" ref={emailRef} placeholder="Email" name="email" /><br />
-                <input type="text" ref={usernameRef} placeholder="Username" name="username" /><br />
-                <input type="password" ref={passwordRef} placeholder="Password" name="password" /><br />
-                <input type="password" ref={repeatPasswordRef} placeholder="Confirm password" name="repeat-password" /><br />
-                <input type="submit" name="submit" value="Signup" disabled={loading} /><br />
-                <Link to="/login">Already have an account?</Link>
-            </form>
-        </div>
+        <>
+            <div className="signup">
+                <form onSubmit={onSubmit} >
+                    <h1>Signup</h1>
+                    {/* If error display it */}
+                    {error && <p className="error">{error}</p>}
+                    <input type="email" ref={emailRef} placeholder="Email" name="email" /><br />
+                    <input type="text" ref={usernameRef} placeholder="Username" name="username" /><br />
+                    <input type="password" ref={passwordRef} placeholder="Password" name="password" /><br />
+                    <input type="password" ref={repeatPasswordRef} placeholder="Confirm password" name="repeat-password" /><br />
+                    <input type="submit" name="submit" value="Signup" disabled={loading} /><br />
+                    <Link to="/login">Already have an account?</Link>
+                </form>
+            </div>
+            <Copyright />
+        </>
     )
 }

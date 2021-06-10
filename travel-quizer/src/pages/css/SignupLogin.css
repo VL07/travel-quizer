@@ -58,3 +58,12 @@ a {
     color: #ff3b3b;
     font-size: 1.5em;
 }
+
+.copr {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+}
