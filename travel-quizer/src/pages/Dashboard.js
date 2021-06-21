@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
+import Card from '../components/Card'
+import FlexRight from '../components/FlexRight'
 import LogoutButton from '../components/LogoutButton'
+import Section from '../components/Section'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from '../firebase'
 
@@ -40,10 +44,21 @@ export default function Dashboard() {
     
 
     return (
-        <div>
-            <p>{currentUser.email}</p>
-            <LogoutButton>Logout</LogoutButton>
-            <p>Score: {userData.score}</p>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center"}} className="fill-screen bg">
+            <Card>
+                <FlexRight style={{justifyContent: "space-between"}}>
+                    <h1>Dashboard</h1>
+                    <LogoutButton>Logout</LogoutButton>
+                </FlexRight>
+                <Section>
+                    <FlexRight style={{justifyContent: "space-between"}}>
+                        <h1>Info</h1>
+                        <Link to="/edit"><h2>Edit</h2></Link>
+                    </FlexRight>
+                    <h2 className="fw-normal">Username: {userData.username}</h2>
+                    <h2 className="fw-normal">Score: {userData.score}</h2>          
+                </Section>
+            </Card>
         </div>
     )
 }

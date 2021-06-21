@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
+import Copyright from '../components/Copyright'
 import { useAuth } from "../contexts/AuthContext"
 import { db } from '../firebase'
 

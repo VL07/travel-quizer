@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
+import Copyright from '../components/Copyright'
 import { useAuth } from "../contexts/AuthContext"
 
 export default function Signup() {
@@ -38,20 +40,25 @@ export default function Signup() {
             history.push("/dashboard")
         } catch (err) {
             console.warn(err)
-            setError("Youser didn't exist")
+            setError("User didn't exist")
             setLoading(false)
         }
     }
 
     return (
-        <div className="login">
-            {/* If error display it */}
-            {error && <p>{error}</p>}
-            <form onSubmit={onSubmit} >
-                <input type="email" ref={emailRef} placeholder="Email" name="email" /><br />
-                <input type="password" ref={passwordRef} placeholder="Password" name="password" /><br />
-                <input type="submit" name="submit" value="Signup" disabled={loading} />
-            </form>
-        </div>
+        <>
+            <div className="login">
+                <form onSubmit={onSubmit} >
+                    <h1>Login</h1>
+                    {/* If error display it */}
+                    {error && <p className="error">{error}</p>}
+                    <input type="email" ref={emailRef} placeholder="Email" name="email" /><br />
+                    <input type="password" ref={passwordRef} placeholder="Password" name="password" /><br />
+                    <input type="submit" name="submit" value="Signup" disabled={loading} /><br />
+                    <Link to="/signup">Don't have an account?</Link>
+                </form>
+            </div>
+            <Copyright />
+        </>
     )
 }
