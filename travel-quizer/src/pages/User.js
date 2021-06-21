@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router'
+import Card from '../components/Card'
+import FlexRight from '../components/FlexRight'
+import Section from '../components/Section'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from '../firebase'
 
@@ -13,7 +16,7 @@ export default function User() {
     const history = useHistory()
 
     // sets the states
-    const [userData, setUserData] = useState({username: "Coming soon", score: 1})
+    const [userData, setUserData] = useState({username: "Loading", score: "Loading"})
 
     // redirects if user isent loged in
     if (!currentUser) {
@@ -47,8 +50,19 @@ export default function User() {
     }, [history, id])
 
     return (
-        <div>
-            Hello user {userData.username}
-        </div>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center"}} className="fill-screen bg">
+        <Card>
+            <FlexRight style={{justifyContent: "space-between"}}>
+                <h1>User: {userData.username}</h1>
+            </FlexRight>
+            <Section>
+                <FlexRight style={{justifyContent: "space-between"}}>
+                    <h1>Info</h1>
+                </FlexRight>
+                <h2 className="fw-normal">Username: {userData.username}</h2>
+                <h2 className="fw-normal">Score: {userData.score}</h2>          
+            </Section>
+        </Card>
+    </div>
     )
 }
