@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import Copyright from '../components/Copyright'
 import { useAuth } from "../contexts/AuthContext"
+import { db } from '../firebase'
 
 export default function Signup() {
     // refs
@@ -43,13 +44,24 @@ export default function Signup() {
         // Trys to create user
         try {
             setError("")
-            await signupUser(emailRef.current.value, passwordRef.current.value)
+            const signupCallback = await signupUser(emailRef.current.value, passwordRef.current.value)
             console.log("created user")
+
+            console.log(signupCallback.user.email)
+
+            const usersDbRef = db.collection("users").doc(signupCallback.user.uid)
+
+            // seting initial data
+            usersDbRef.set({username: username, score: 1}).then(() => {
+                console.log("Successfully wrote data")
+            }).catch((error) => {
+                console.error("Error writing document: ", error)
+            })
 
             console.log(usernameRef)
             console.log("here:")
             console.log(username)
-            history.push({pathname: "/dashboard", search: `?username=${username}`})
+            history.push({pathname: "/dashboard"})
         } catch(err) {
             setError("Unable to create user")
             setLoading(false)
@@ -58,21 +70,16 @@ export default function Signup() {
     }
 
     return (
-        <>
-            <div className="signup">
-                <form onSubmit={onSubmit} >
-                    <h1>Signup</h1>
-                    {/* If error display it */}
-                    {error && <p className="error">{error}</p>}
-                    <input type="email" ref={emailRef} placeholder="Email" name="email" /><br />
-                    <input type="text" ref={usernameRef} placeholder="Username" name="username" /><br />
-                    <input type="password" ref={passwordRef} placeholder="Password" name="password" /><br />
-                    <input type="password" ref={repeatPasswordRef} placeholder="Confirm password" name="repeat-password" /><br />
-                    <input type="submit" name="submit" value="Signup" disabled={loading} /><br />
-                    <Link to="/login">Already have an account?</Link>
-                </form>
-            </div>
-            <Copyright />
-        </>
+        <div className="signup">
+            {/* If error display it */}
+            {error && <p>{error}</p>}
+            <form onSubmit={onSubmit} >
+                <input type="email" ref={emailRef} placeholder="Email" name="email" required /><br />
+                <input type="text" ref={usernameRef} placeholder="Username" name="username" required /><br />
+                <input type="password" ref={passwordRef} placeholder="Password" name="password" required /><br />
+                <input type="password" ref={repeatPasswordRef} placeholder="Confirm password" name="repeat-password" required /><br />
+                <input type="submit" name="submit" value="Signup" disabled={loading} />
+            </form>
+        </div>
     )
 }
